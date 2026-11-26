@@ -1,8 +1,8 @@
-# Frontend — CampusExplore
+# Frontend — BBSR-explore
 
-This directory will contain the **frontend** of CampusExplore.
+This directory will contain the **frontend** of **BBSR-explore**.
 
-> **Status: Not yet implemented.** No HTML pages, CSS files, JavaScript files, or assets exist here yet. This README documents what is planned.
+> **Status: Not yet implemented.** No HTML pages, CSS files, JavaScript files, or assets exist here yet. This document describes the planned frontend structure.
 
 ---
 
@@ -10,11 +10,11 @@ This directory will contain the **frontend** of CampusExplore.
 
 | Technology | Role |
 |---|---|
-| HTML5 | Page structure and semantic markup |
-| CSS3 | Styling and layout |
-| Bootstrap 5 | Responsive UI components, grid system, and utility classes |
-| JavaScript (Vanilla) | Client-side interactivity, API calls, and dynamic content |
-| Maps SDK (TBD) | Rendering interactive maps (Google Maps or Mapbox, to be confirmed) |
+| HTML5 | Semantic page structure |
+| CSS3 | Custom styling and layout |
+| Bootstrap 5 | Responsive UI components, grid system, and utilities |
+| JavaScript | Client-side interactivity and REST API calls |
+| Maps SDK (TBD) | Interactive maps and routing display (Google Maps or Mapbox) |
 
 ---
 
@@ -22,27 +22,24 @@ This directory will contain the **frontend** of CampusExplore.
 
 The frontend will be responsible for:
 
-- Rendering venue listings, search results, and category filters.
-- Displaying venue detail pages with maps, ratings, and reviews.
-- Providing the user registration, login, and preferences interface.
-- Rendering the interactive map view of nearby venues.
-- Hosting the AI chatbot interface.
-- Displaying the Plan My Day itinerary planner.
-- Communicating with the Spring Boot backend via REST API calls.
+- Rendering the landing page, Bhubaneswar venue discovery cards, search, and multi-criteria filters.
+- Displaying venue detail pages (images, reviews, ratings, directions) and side-by-side place comparisons.
+- Providing user registration, login, profile, preference settings, and favorites dashboards.
+- Rendering smart exploration interfaces: personalized recommendation results, AI exploration assistant chatbot, and the Plan My Day / Group Outing itinerary planner (with loading, empty, and error states).
+- Providing administrative venue management and moderation interfaces.
+- Communicating with the Spring Boot backend over REST APIs.
 
 ---
 
 ## Prerequisites (for when implementation begins)
 
-The initial frontend is planned as static HTML, CSS, Bootstrap, and JavaScript — **no build tool or Node.js is required** to open or serve the files initially.
-
-If a frontend build tool (e.g., Vite or Webpack) is adopted in the future, the specific Node.js version and setup steps will be documented here at that time.
+The initial frontend is planned using **HTML5, CSS3, Bootstrap 5, and JavaScript** — no Node.js build pipeline is required initially. If a bundler is introduced later, Node.js requirements will be documented here.
 
 ---
 
 ## Getting Started (future)
 
-Once implementation begins, instructions for opening or serving the frontend locally will be added to this file. At a minimum, the entry point will be an `index.html` file that can be opened in a browser or served through VS Code's Live Server extension or a similar static file server.
+Local serving instructions will be added once `index.html` and core UI components are created under Module 5.
 
 ---
 

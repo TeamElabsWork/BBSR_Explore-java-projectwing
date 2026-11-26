@@ -1,8 +1,8 @@
-# Backend — CampusExplore
+# Backend — BBSR-explore
 
-This directory will contain the **Spring Boot** backend application for CampusExplore.
+This directory will contain the **Spring Boot** backend application for **BBSR-explore**.
 
-> **Status: Not yet implemented.** No source code, Maven configuration (`pom.xml`), or project structure exists here yet. This README documents what is planned.
+> **Status: Not yet implemented.** No source code, Maven configuration (`pom.xml`), or Java packages exist here yet. This document describes the planned backend structure.
 
 ---
 
@@ -11,11 +11,13 @@ This directory will contain the **Spring Boot** backend application for CampusEx
 | Technology | Role |
 |---|---|
 | Java | Primary backend language |
-| Spring Boot | Application framework; REST API, dependency injection, lifecycle management |
-| Spring Data JPA / Hibernate | ORM layer for database interaction |
-| MySQL | Relational database (running locally or on a server) |
-| JUnit | Unit and integration testing |
+| Spring Boot | REST API framework, dependency injection, application lifecycle |
+| Spring Security | Authentication, authorization, and role-based access control |
+| Spring Data JPA / Hibernate | ORM layer for MySQL persistence |
+| MySQL | Relational database |
+| Swagger / OpenAPI | Interactive REST API documentation |
 | Maven | Build tool and dependency management |
+| JUnit & Mockito | Unit, integration, and recommendation-engine testing |
 
 ---
 
@@ -23,33 +25,29 @@ This directory will contain the **Spring Boot** backend application for CampusEx
 
 The backend will be responsible for:
 
-- Exposing a REST API consumed by the frontend.
-- Implementing business logic including the recommendation engine.
-- Integrating external services (LLM API for the AI chatbot; Maps API for location data) on the server side to keep API keys out of the browser.
-- Handling user authentication and session management.
-- Performing database operations through the repository layer.
+- Exposing versioned REST APIs for place discovery, search, comparison, reviews, favorites, and itineraries.
+- Implementing user authentication, RBAC, and profile/preference management via Spring Security.
+- Running the **Java-based recommendation engine** (mandatory constraint filtering + configurable weighted ranking).
+- Integrating external services (**Maps/Routing API** and **LLM API**) strictly on the server side to protect API keys, enforce timeouts/quotas, and validate outputs.
+- Supporting administrative venue management, category management, moderation, and audit logging.
 
 ---
 
 ## Prerequisites (for when implementation begins)
 
-The following software will be required to run the backend locally. Exact versions will be confirmed when the Spring Boot version is selected and documented here.
-
-- **JDK** — A version compatible with the chosen Spring Boot release.
-- **Maven** — Or use the Maven wrapper (`./mvnw`) that will be generated during project initialization.
-- **MySQL Server** — A locally running instance with a database created for development.
+- **JDK** — LTS version confirmed during Module 1 initialization.
+- **Maven** — Or the Maven wrapper (`./mvnw`) generated during project setup.
+- **MySQL Server** — Locally running instance for development.
 
 ---
 
 ## Getting Started (future)
 
-Build and run instructions, environment configuration steps, and database setup will be added to this file once the Spring Boot project has been initialized. Do not attempt to run the backend from this directory yet.
+Build, run, and environment configuration instructions will be added here once the Spring Boot project is initialized under Module 1. Do not attempt to build or run the backend yet.
 
 ---
 
 ## Structure (planned)
-
-Once initialized, the backend will follow the standard Spring Boot Maven project layout:
 
 ```
 backend/
@@ -57,18 +55,22 @@ backend/
 └── src/
     ├── main/
     │   ├── java/
-    │   │   └── com/campusexplore/
+    │   │   └── com/bbsrexplore/
+    │   │       ├── config/
     │   │       ├── controller/
-    │   │       ├── service/
-    │   │       ├── repository/
+    │   │       ├── dto/
+    │   │       ├── exception/
     │   │       ├── model/
-    │   │       └── CampusExploreApplication.java
-    │   └── resources/
-    │       ├── application.properties
-    │       └── application-local.properties  (gitignored)
+    │       │       ├── repository/
+    │       │       ├── security/
+    │       │       ├── service/
+    │       │       └── BbsrExploreApplication.java
+    │       └── resources/
+    │           ├── application.properties
+    │           └── application-local.properties  (gitignored)
     └── test/
         └── java/
-            └── com/campusexplore/
+            └── com/bbsrexplore/
 ```
 
 This structure has not been created yet.
