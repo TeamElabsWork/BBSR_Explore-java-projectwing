@@ -1,0 +1,760 @@
+{
+  "repository": "TeamElabsWork/BBSR_Explore-java-projectwing",
+  "target_issue_count": 38,
+  "labels": [
+    {
+      "name": "frontend",
+      "color": "1d76db",
+      "description": "HTML5, CSS3, Bootstrap 5, and JavaScript UI work"
+    },
+    {
+      "name": "backend",
+      "color": "0e8a16",
+      "description": "Java and Spring Boot backend services and APIs"
+    },
+    {
+      "name": "database",
+      "color": "5319e7",
+      "description": "MySQL schema, migrations, JPA entities, and seed data"
+    },
+    {
+      "name": "authentication",
+      "color": "d93f0b",
+      "description": "User authentication, authorization, and profile management"
+    },
+    {
+      "name": "maps",
+      "color": "006b75",
+      "description": "Map provider integration, geolocation, and routing"
+    },
+    {
+      "name": "recommendation",
+      "color": "fbca04",
+      "description": "Java constraint-filtering and weighted recommendation engine"
+    },
+    {
+      "name": "ai-chatbot",
+      "color": "c2e0c6",
+      "description": "LLM integration and conversational exploration assistant"
+    },
+    {
+      "name": "itinerary",
+      "color": "bfdadc",
+      "description": "Plan My Day and group outing itinerary planner"
+    },
+    {
+      "name": "admin",
+      "color": "b60205",
+      "description": "Administrative dashboard, venue management, and moderation"
+    },
+    {
+      "name": "testing",
+      "color": "f9d0c4",
+      "description": "Unit, integration, API, and end-to-end testing"
+    },
+    {
+      "name": "security",
+      "color": "ee0701",
+      "description": "Application security, validation, secrets, and rate limiting"
+    },
+    {
+      "name": "documentation",
+      "color": "0075ca",
+      "description": "Improvements or additions to documentation"
+    },
+    {
+      "name": "devops",
+      "color": "c5def5",
+      "description": "Build tooling, CI/CD workflows, and deployment"
+    },
+    {
+      "name": "feature",
+      "color": "84b6eb",
+      "description": "New application feature"
+    },
+    {
+      "name": "enhancement",
+      "color": "a2eeef",
+      "description": "New feature or request"
+    },
+    {
+      "name": "task",
+      "color": "d4c5f9",
+      "description": "Setup, configuration, or operational task"
+    },
+    {
+      "name": "research",
+      "color": "ededed",
+      "description": "Technical investigation or spike"
+    },
+    {
+      "name": "bug",
+      "color": "d73a4a",
+      "description": "Something isn't working"
+    },
+    {
+      "name": "refactor",
+      "color": "fef2c0",
+      "description": "Code restructuring without behavior change"
+    },
+    {
+      "name": "priority:P0",
+      "color": "b60205",
+      "description": "Critical foundation or release blocker"
+    },
+    {
+      "name": "priority:P1",
+      "color": "d93f0b",
+      "description": "Essential application functionality"
+    },
+    {
+      "name": "priority:P2",
+      "color": "fbca04",
+      "description": "Advanced or expo-level functionality"
+    }
+  ],
+  "milestones": [
+    {
+      "title": "M1 — Project Foundation",
+      "description": "Project architecture, backend standards, collaboration workflow, DB schema, migrations, and initial Bhubaneswar venue data."
+    },
+    {
+      "title": "M2 — Core Application",
+      "description": "Authentication, RBAC, user profiles, core place discovery APIs, and core frontend interfaces."
+    },
+    {
+      "title": "M3 — Location and Community",
+      "description": "Interactive maps, location-based discovery, routing, reviews/ratings, and favorites/feedback."
+    },
+    {
+      "title": "M4 — Intelligent Exploration",
+      "description": "Java constraint-filtering and weighted recommendation engine, LLM chatbot integration, and smart exploration UI."
+    },
+    {
+      "title": "M5 — Advanced Features",
+      "description": "Plan My Day / Group Outing Planner, saved/shareable itineraries, and admin/moderation controls."
+    },
+    {
+      "title": "M6 — Final Release",
+      "description": "Comprehensive automated testing, security hardening, CI/CD workflows, production deployment, and final docs."
+    }
+  ],
+  "issues": [
+    {
+      "id": 1,
+      "title": "[Module 1] Initialize project architecture and Spring Boot backend",
+      "labels": [
+        "backend",
+        "devops",
+        "task",
+        "priority:P0"
+      ],
+      "milestone": "M1 — Project Foundation",
+      "dependencies": [],
+      "body": "### Objective\nEstablish the foundational Spring Boot Maven project structure and environment configuration for BBSR-explore.\n\n### Description\nInitialize the `backend/` directory with Maven, Spring Boot, core dependencies, package layout (`com.bbsrexplore.*`), and externalized environment configuration templates.\n\n### Scope of Work\n- [ ] Initialize Maven project (`pom.xml`) and wrapper (`mvnw`, `mvnw.cmd`) under `backend/`\n- [ ] Configure core dependencies (Spring Web, Spring Data JPA, Spring Security, Validation, MySQL Driver)\n- [ ] Create base package structure (`config`, `controller`, `dto`, `exception`, `model`, `repository`, `security`, `service`) and `BbsrExploreApplication.java`\n- [ ] Add `.env.example` / `application.properties.example` with placeholder keys only (no real secrets)\n- [ ] Update `backend/README.md` with verified build and run commands\n\n### Acceptance Criteria\n- `./mvnw test` and `./mvnw spring-boot:run` execute cleanly with local configuration\n- No credentials or secrets are committed to the repository\n- `backend/README.md` documents exact Java/Maven versions and startup steps\n\n### Dependencies\n- None\n\n### Technical Notes\nPin a supported Java LTS version and Spring Boot 3.x release. Keep `application-local.properties` and `.env` gitignored.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 2,
+      "title": "[Module 1] Establish backend development standards",
+      "labels": [
+        "backend",
+        "documentation",
+        "task",
+        "priority:P0"
+      ],
+      "milestone": "M1 — Project Foundation",
+      "dependencies": [
+        1
+      ],
+      "body": "### Objective\nDefine consistent REST API conventions, DTO patterns, validation, global exception handling, and OpenAPI documentation.\n\n### Description\nEnsure all backend modules follow uniform API contracts, error responses, request validation, and interactive Swagger/OpenAPI documentation.\n\n### Scope of Work\n- [ ] Define REST URL versioning and standard response/pagination wrapper conventions\n- [ ] Configure Jakarta Bean Validation and a `@RestControllerAdvice` global exception handler\n- [ ] Integrate Springdoc OpenAPI / Swagger UI for automated API documentation\n- [ ] Document backend DTO, controller, and service conventions in `docs/`\n\n### Acceptance Criteria\n- Invalid request payloads return consistent structured HTTP 400 error responses\n- Swagger UI / OpenAPI JSON endpoint is accessible in local development\n- Conventions are documented and ready for feature modules\n\n### Dependencies\n- {{DEP_1}}\n\n### Technical Notes\nFollow layered architecture (Controller -> Service -> Repository). Never expose JPA entities directly in REST responses.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 3,
+      "title": "[Module 1] Configure GitHub collaboration and development workflow",
+      "labels": [
+        "documentation",
+        "devops",
+        "task",
+        "priority:P0"
+      ],
+      "milestone": "M1 — Project Foundation",
+      "dependencies": [],
+      "body": "### Objective\nStandardize repository collaboration templates, branch protection recommendations, and issue/PR workflows.\n\n### Description\nProvide clear GitHub Issue templates, Pull Request template, and documented workflow rules so contributors follow consistent practices.\n\n### Scope of Work\n- [ ] Add `.github/PULL_REQUEST_TEMPLATE.md` aligned with `CONTRIBUTING.md` checklist\n- [ ] Add `.github/ISSUE_TEMPLATE/` templates (bug report, feature/task)\n- [ ] Document branch protection and PR review expectations for `main`\n- [ ] Verify `README.md` and `CONTRIBUTING.md` links and workflow steps\n\n### Acceptance Criteria\n- PR template automatically populates when opening a PR targeting `main`\n- Issue templates align with project labels, priorities, and milestones\n\n### Dependencies\n- None\n\n### Technical Notes\nKeep `main` protected; all changes must go through feature branches and reviewed pull requests.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 4,
+      "title": "[Module 2] Design database schema and ER diagram",
+      "labels": [
+        "database",
+        "documentation",
+        "task",
+        "priority:P0"
+      ],
+      "milestone": "M1 — Project Foundation",
+      "dependencies": [
+        1
+      ],
+      "body": "### Objective\nDesign the complete relational MySQL schema and Entity-Relationship diagram for BBSR-explore.\n\n### Description\nModel all core entities required for city-wide Bhubaneswar discovery, authentication, reviews, recommendations, and multi-stop itineraries.\n\n### Scope of Work\n- [ ] Design tables and relationships for `users`, `roles`, `places`, `categories`, `place_images`, `reviews`, `favorites`, `user_preferences`, `recommendation_interactions`, `itineraries`, and `itinerary_stops`\n- [ ] Define primary keys, foreign keys, unique constraints, and query indexes (e.g., category, price, coordinates)\n- [ ] Produce an ER diagram and schema specification under `docs/` and `database/README.md`\n\n### Acceptance Criteria\n- ER diagram covers all 11 core domain concepts and their cardinalities\n- Schema supports budget ranges, opening hours, coordinates, accessibility flags, and itinerary ordering\n\n### Dependencies\n- {{DEP_1}}\n\n### Technical Notes\nAvoid campus-specific assumptions; ensure `places` supports all 9 Bhubaneswar venue categories.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 5,
+      "title": "[Module 2] Implement persistence layer and database migrations",
+      "labels": [
+        "backend",
+        "database",
+        "feature",
+        "priority:P0"
+      ],
+      "milestone": "M1 — Project Foundation",
+      "dependencies": [
+        1,
+        4
+      ],
+      "body": "### Objective\nImplement versioned SQL migrations, JPA entities, and Spring Data JPA repositories.\n\n### Description\nTranslate the approved ER diagram into reproducible Flyway/Liquibase migrations and Java persistence classes.\n\n### Scope of Work\n- [ ] Configure Flyway (or Liquibase) in `backend/pom.xml` and `database/migrations/`\n- [ ] Write initial versioned migration script(s) creating all tables and constraints\n- [ ] Implement JPA `@Entity` classes and Spring Data JPA `Repository` interfaces\n- [ ] Verify schema startup and repository CRUD tests against a test database\n\n### Acceptance Criteria\n- Migrations apply cleanly on an empty MySQL database\n- JPA entity mappings pass Hibernate schema validation (`ddl-auto=validate`)\n\n### Dependencies\n- {{DEP_1}}\n- {{DEP_4}}\n\n### Technical Notes\nUse versioned migrations rather than `ddl-auto=update` in shared environments.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 6,
+      "title": "[Module 2] Collect and verify Bhubaneswar venue data",
+      "labels": [
+        "database",
+        "documentation",
+        "task",
+        "priority:P1"
+      ],
+      "milestone": "M1 — Project Foundation",
+      "dependencies": [
+        4,
+        5
+      ],
+      "body": "### Objective\nCurate legitimately sourced Bhubaneswar venue data and create development seed scripts.\n\n### Description\nPopulate the database with accurate, verified Bhubaneswar venues across all 9 categories for local development and testing.\n\n### Scope of Work\n- [ ] Collect verified venue details (name, category, coordinates, price range, opening hours, amenities, accessibility, licensed/attributed photos)\n- [ ] Cover cafés/restaurants, street food, parks, temples/heritage, tourist attractions, study spaces/libraries, shopping, entertainment, and hidden gems\n- [ ] Create idempotent development seed scripts under `database/seeds/`\n- [ ] Document data sources and licensing compliance in `database/README.md`\n\n### Acceptance Criteria\n- Seed data loads cleanly without constraint errors\n- All 9 venue categories are represented with realistic Bhubaneswar coordinates and opening hours\n- Third-party data licensing and attribution requirements are respected\n\n### Dependencies\n- {{DEP_4}}\n- {{DEP_5}}\n\n### Technical Notes\nNever scrape or store copyrighted assets without permission; clearly document seed data provenance.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 7,
+      "title": "[Module 3] Implement authentication system",
+      "labels": [
+        "authentication",
+        "backend",
+        "security",
+        "feature",
+        "priority:P0"
+      ],
+      "milestone": "M2 — Core Application",
+      "dependencies": [
+        2,
+        5
+      ],
+      "body": "### Objective\nImplement secure user registration, login, logout, password hashing, and session/token management.\n\n### Description\nEnable users to register and authenticate securely using Spring Security before accessing personalized features.\n\n### Scope of Work\n- [ ] Configure Spring Security password encoding (BCrypt) and stateless/session auth strategy\n- [ ] Implement registration, login, and logout REST endpoints with DTO validation\n- [ ] Handle duplicate email/username conflicts and invalid credentials cleanly\n- [ ] Write unit and integration tests for authentication flows\n\n### Acceptance Criteria\n- Passwords are never stored or logged in plaintext\n- Valid registration/login returns appropriate auth response; invalid credentials return HTTP 401\n\n### Dependencies\n- {{DEP_2}}\n- {{DEP_5}}\n\n### Technical Notes\nKeep signing secrets and token expiration settings externalized via environment variables.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 8,
+      "title": "[Module 3] Implement authorization and access control",
+      "labels": [
+        "authentication",
+        "backend",
+        "security",
+        "feature",
+        "priority:P0"
+      ],
+      "milestone": "M2 — Core Application",
+      "dependencies": [
+        7
+      ],
+      "body": "### Objective\nEnforce role-based access control (RBAC) across public, authenticated user, and administrative endpoints.\n\n### Description\nProtect user-specific and administrative APIs while keeping public place discovery accessible.\n\n### Scope of Work\n- [ ] Define `USER` and `ADMIN` roles and seed default role records\n- [ ] Configure Spring Security route rules and method-level security (`@PreAuthorize`)\n- [ ] Enforce ownership checks on user-owned resources (reviews, favorites, itineraries)\n- [ ] Test unauthorized (401) and forbidden (403) access scenarios\n\n### Acceptance Criteria\n- Admin endpoints reject non-admin users with HTTP 403\n- Unauthenticated requests to protected endpoints return HTTP 401\n\n### Dependencies\n- {{DEP_7}}\n\n### Technical Notes\nApply principle of least privilege across all controller endpoints.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 9,
+      "title": "[Module 3] Implement user profiles and preferences",
+      "labels": [
+        "authentication",
+        "backend",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M2 — Core Application",
+      "dependencies": [
+        5,
+        7
+      ],
+      "body": "### Objective\nAllow users to manage their profile, exploration interests, preferences, and privacy controls.\n\n### Description\nStore and expose user preferences (budget, preferred categories, mood, distance tolerance) used by the recommendation engine.\n\n### Scope of Work\n- [ ] Implement profile retrieval and update endpoints\n- [ ] Implement user preferences CRUD (budget range, categories, distance tolerance, accessibility needs)\n- [ ] Add privacy control flags (e.g., recommendation interaction tracking opt-out)\n- [ ] Add account deactivation/deletion support\n\n### Acceptance Criteria\n- Authenticated users can view and update their profile and preferences\n- Preference updates persist in MySQL and respect validation bounds\n\n### Dependencies\n- {{DEP_5}}\n- {{DEP_7}}\n\n### Technical Notes\nEnsure users can only view or modify their own profile and preference records.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 10,
+      "title": "[Module 4] Implement place listing and details APIs",
+      "labels": [
+        "backend",
+        "feature",
+        "priority:P0"
+      ],
+      "milestone": "M2 — Core Application",
+      "dependencies": [
+        2,
+        5,
+        6
+      ],
+      "body": "### Objective\nExpose REST APIs for paginated venue retrieval, categories, and full venue details.\n\n### Description\nProvide the core backend endpoints powering venue browsing and individual venue detail pages.\n\n### Scope of Work\n- [ ] Implement `GET /api/v1/places` with pagination and sorting\n- [ ] Implement `GET /api/v1/places/{id}` returning full details, images, amenities, hours, and rating summary\n- [ ] Implement `GET /api/v1/categories` endpoint\n- [ ] Add integration tests for listing, pagination, and 404 handling\n\n### Acceptance Criteria\n- Paginated place list and single place details return documented DTOs\n- Non-existent place IDs return structured HTTP 404 responses\n\n### Dependencies\n- {{DEP_2}}\n- {{DEP_5}}\n- {{DEP_6}}\n\n### Technical Notes\nInclude clear indicators when optional fields (e.g., phone or website) are unavailable.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 11,
+      "title": "[Module 4] Implement advanced search and filtering",
+      "labels": [
+        "backend",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M2 — Core Application",
+      "dependencies": [
+        10
+      ],
+      "body": "### Objective\nSupport multi-criteria search and filtering across Bhubaneswar venues.\n\n### Description\nEnable users to narrow down venues by keyword, category, budget, rating, distance, mood, amenities, and opening hours.\n\n### Scope of Work\n- [ ] Implement dynamic query specification (JPA Specifications / QueryDSL) for combined filters\n- [ ] Support keyword, category, min/max budget, minimum rating, max distance, mood tags, amenities, and open-now/opening-hours filtering\n- [ ] Validate filter parameters and return paginated results\n\n### Acceptance Criteria\n- Combining multiple filters returns accurate matching venues\n- Empty filter results return an empty paginated list with HTTP 200\n\n### Dependencies\n- {{DEP_10}}\n\n### Technical Notes\nIndex frequently filtered columns (category, price range, rating) for query performance.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 12,
+      "title": "[Module 4] Implement trending places and Hidden Gems",
+      "labels": [
+        "backend",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M2 — Core Application",
+      "dependencies": [
+        10
+      ],
+      "body": "### Objective\nProvide discovery endpoints for trending venues and lesser-known local Hidden Gems.\n\n### Description\nHighlight both popular Bhubaneswar spots and underrated local attractions to serve tourists and residents alike.\n\n### Scope of Work\n- [ ] Define deterministic criteria for Trending (recent/overall ratings, favorites, interaction counts)\n- [ ] Define criteria for Hidden Gems (curated flag + high rating with lower review volume)\n- [ ] Expose `GET /api/v1/places/trending` and `GET /api/v1/places/hidden-gems` endpoints\n\n### Acceptance Criteria\n- Both endpoints return curated/computed venue lists with pagination/limits\n- Unit tests verify ranking and Hidden Gem eligibility logic\n\n### Dependencies\n- {{DEP_10}}\n\n### Technical Notes\nKeep scoring logic transparent and configurable.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 13,
+      "title": "[Module 4] Implement place comparison",
+      "labels": [
+        "backend",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M2 — Core Application",
+      "dependencies": [
+        10
+      ],
+      "body": "### Objective\nEnable side-by-side comparison of multiple venues across key attributes.\n\n### Description\nAllow users to compare prices, ratings, distances, opening hours, and amenities for 2–4 selected venues.\n\n### Scope of Work\n- [ ] Implement `GET /api/v1/places/compare?ids=...` endpoint\n- [ ] Validate minimum/maximum number of compared places and handle missing IDs\n- [ ] Return normalized comparison attributes (price range, rating, facilities, distance if origin provided)\n\n### Acceptance Criteria\n- Comparing 2–4 valid venues returns a structured side-by-side comparison DTO\n- Invalid ID counts or unknown IDs return clear HTTP 400/404 errors\n\n### Dependencies\n- {{DEP_10}}\n\n### Technical Notes\nHandle missing optional attributes gracefully without failing the comparison.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 14,
+      "title": "[Module 5] Design application UI and reusable components",
+      "labels": [
+        "frontend",
+        "task",
+        "priority:P0"
+      ],
+      "milestone": "M2 — Core Application",
+      "dependencies": [
+        3
+      ],
+      "body": "### Objective\nEstablish the frontend design system, responsive layout, navigation, accessibility baseline, and shared UI components.\n\n### Description\nCreate a cohesive Bootstrap 5 + custom CSS/JS foundation for all BBSR-explore pages.\n\n### Scope of Work\n- [ ] Set up `frontend/` structure (`index.html`, `css/`, `js/`, `assets/`)\n- [ ] Define color palette, typography, spacing, and responsive navbar/footer components\n- [ ] Build reusable JS API client wrapper and shared UI helpers (toasts, modals, loading/empty/error states)\n- [ ] Verify keyboard navigation, semantic HTML5 landmarks, and contrast accessibility\n\n### Acceptance Criteria\n- Shared layout and components render cleanly on mobile, tablet, and desktop viewports\n- Frontend assets load without console errors\n\n### Dependencies\n- {{DEP_3}}\n\n### Technical Notes\nUse HTML5, CSS3, Bootstrap 5, and vanilla JavaScript without introducing unnecessary frameworks.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 15,
+      "title": "[Module 5] Build landing page and place discovery interface",
+      "labels": [
+        "frontend",
+        "feature",
+        "priority:P0"
+      ],
+      "milestone": "M2 — Core Application",
+      "dependencies": [
+        10,
+        11,
+        14
+      ],
+      "body": "### Objective\nBuild the BBSR-explore homepage, category browser, search bar, filters, and venue cards.\n\n### Description\nDeliver the primary discovery UI where users browse Bhubaneswar venues, Trending spots, and Hidden Gems.\n\n### Scope of Work\n- [ ] Build hero section and quick-search bar on `index.html`\n- [ ] Implement category chips and multi-criteria filter sidebar/drawer\n- [ ] Render responsive venue cards with price, rating, category, and distance badges\n- [ ] Connect UI controls to the backend listing, search, trending, and Hidden Gems APIs\n\n### Acceptance Criteria\n- Users can search, filter, and paginate venues live against the backend API\n- Empty search results and API errors display clear user-friendly states\n\n### Dependencies\n- {{DEP_10}}\n- {{DEP_11}}\n- {{DEP_14}}\n\n### Technical Notes\nEnsure graceful degradation if optional venue images are missing.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 16,
+      "title": "[Module 5] Build place details and comparison interface",
+      "labels": [
+        "frontend",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M2 — Core Application",
+      "dependencies": [
+        10,
+        13,
+        14
+      ],
+      "body": "### Objective\nBuild the venue detail page and side-by-side place comparison UI.\n\n### Description\nPresent complete venue information, photo gallery, reviews, ratings, directions trigger, and comparison table.\n\n### Scope of Work\n- [ ] Build place details view (gallery, description, price range, hours, amenities, accessibility)\n- [ ] Integrate reviews list and rating breakdown section\n- [ ] Build comparison selector and side-by-side comparison table/cards\n- [ ] Add directions/map action buttons\n\n### Acceptance Criteria\n- Clicking any venue card opens its full details view\n- Users can select 2–4 venues and view a clear attribute-by-attribute comparison\n\n### Dependencies\n- {{DEP_10}}\n- {{DEP_13}}\n- {{DEP_14}}\n\n### Technical Notes\nEscape all user-generated content (reviews) before rendering in the DOM.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 17,
+      "title": "[Module 5] Build authentication and user dashboard interfaces",
+      "labels": [
+        "frontend",
+        "authentication",
+        "feature",
+        "priority:P0"
+      ],
+      "milestone": "M2 — Core Application",
+      "dependencies": [
+        7,
+        9,
+        14
+      ],
+      "body": "### Objective\nBuild login, registration, user profile, preferences, and saved favorites interfaces.\n\n### Description\nAllow users to sign in, configure their exploration preferences, and manage their saved places.\n\n### Scope of Work\n- [ ] Build login and registration forms with client-side and server error display\n- [ ] Build user profile and preference settings form (budget, categories, distance, privacy)\n- [ ] Build saved favorites list view with remove/navigate actions\n- [ ] Update navbar state dynamically for authenticated vs. guest users\n\n### Acceptance Criteria\n- Users can register, log in, log out, update preferences, and view favorites end-to-end\n- Protected pages redirect unauthenticated users cleanly to login\n\n### Dependencies\n- {{DEP_7}}\n- {{DEP_9}}\n- {{DEP_14}}\n\n### Technical Notes\nStore auth tokens/sessions securely following the backend auth strategy.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 18,
+      "title": "[Module 5] Build smart exploration interfaces",
+      "labels": [
+        "frontend",
+        "recommendation",
+        "ai-chatbot",
+        "itinerary",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M4 — Intelligent Exploration",
+      "dependencies": [
+        14,
+        26,
+        29,
+        30
+      ],
+      "body": "### Objective\nBuild the UI for personalized recommendations, the AI exploration chatbot, and the Plan My Day itinerary planner.\n\n### Description\nExpose BBSR-explore's intelligent features with clear explanations, interactive controls, and robust loading/empty/error states.\n\n### Scope of Work\n- [ ] Build personalized recommendation results view showing score explanations\n- [ ] Build interactive AI chatbot widget/page with conversation history and grounded venue cards\n- [ ] Build Plan My Day / Group Outing Planner form and timeline/map itinerary view\n- [ ] Implement loading skeletons, empty states, and fallback error banners\n\n### Acceptance Criteria\n- All three smart workflows render cleanly and handle backend timeouts or fallbacks gracefully\n- Estimated itinerary expenses and travel times are clearly labeled as estimates\n\n### Dependencies\n- {{DEP_14}}\n- {{DEP_26}}\n- {{DEP_29}}\n- {{DEP_30}}\n\n### Technical Notes\nNever render raw unvalidated HTML from LLM responses.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 19,
+      "title": "[Module 6] Integrate map provider and interactive maps",
+      "labels": [
+        "maps",
+        "frontend",
+        "backend",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M3 — Location and Community",
+      "dependencies": [
+        1,
+        14
+      ],
+      "body": "### Objective\nSelect and integrate the map provider (Google Maps or Mapbox) for interactive Bhubaneswar venue maps.\n\n### Description\nRender interactive maps with venue markers, popups, and server-side configuration protection.\n\n### Scope of Work\n- [ ] Evaluate and finalize map provider choice (Google Maps vs. Mapbox) and document decision\n- [ ] Configure map API keys securely (restricting client keys by domain/quota; keeping server keys backend-only)\n- [ ] Render interactive map with clustered/categorized venue markers and info popups\n- [ ] Add map-to-detail navigation\n\n### Acceptance Criteria\n- Interactive map displays Bhubaneswar venues accurately at their stored coordinates\n- No unrestricted server API keys are exposed in frontend source\n\n### Dependencies\n- {{DEP_1}}\n- {{DEP_14}}\n\n### Technical Notes\nDocument provider selection and quota limits in `docs/`.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 20,
+      "title": "[Module 6] Implement location-based discovery",
+      "labels": [
+        "maps",
+        "backend",
+        "frontend",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M3 — Location and Community",
+      "dependencies": [
+        10,
+        19
+      ],
+      "body": "### Objective\nSupport browser geolocation, manual starting-point selection, nearby discovery, and distance calculation.\n\n### Description\nAllow users to find places near their current location or any chosen Bhubaneswar landmark.\n\n### Scope of Work\n- [ ] Implement browser geolocation permission prompt with graceful fallback to manual location selection\n- [ ] Implement backend nearby-places query and Haversine straight-line distance calculation\n- [ ] Clearly label straight-line distance vs. route distance in API and UI\n\n### Acceptance Criteria\n- Users who deny geolocation can still select a Bhubaneswar area/landmark manually\n- Nearby results are sorted accurately by distance\n\n### Dependencies\n- {{DEP_10}}\n- {{DEP_19}}\n\n### Technical Notes\nExplicitly distinguish straight-line distance from actual road/route distance.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 21,
+      "title": "[Module 6] Implement routing and navigation services",
+      "labels": [
+        "maps",
+        "backend",
+        "frontend",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M3 — Location and Community",
+      "dependencies": [
+        19,
+        20
+      ],
+      "body": "### Objective\nProvide directions, actual route distances, travel-time estimates, and multi-stop map routes.\n\n### Description\nHelp users navigate to single venues or follow multi-stop itineraries with realistic travel estimates.\n\n### Scope of Work\n- [ ] Integrate backend routing/directions service with timeout, quota, and error handling\n- [ ] Compute actual route distance and estimated travel time (walking/driving/transit as supported)\n- [ ] Support multi-stop route rendering on the map\n- [ ] Provide fallback deep-link to external maps if routing quota is exceeded\n\n### Acceptance Criteria\n- Route distance and travel-time estimates are returned and distinguished from straight-line distance\n- External API failures degrade gracefully without crashing the UI\n\n### Dependencies\n- {{DEP_19}}\n- {{DEP_20}}\n\n### Technical Notes\nCache or rate-limit routing calls where appropriate to control API costs.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 22,
+      "title": "[Module 7] Implement reviews and ratings system",
+      "labels": [
+        "backend",
+        "frontend",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M3 — Location and Community",
+      "dependencies": [
+        7,
+        10,
+        16
+      ],
+      "body": "### Objective\nImplement user reviews, star ratings, aggregate rating updates, ownership rules, and review reporting.\n\n### Description\nEnable community feedback on Bhubaneswar venues with validation and moderation hooks.\n\n### Scope of Work\n- [ ] Implement Review CRUD endpoints (create, edit, delete own review) with rating bounds (1–5)\n- [ ] Recalculate and persist/cache venue average rating and review count\n- [ ] Implement review reporting endpoint for inappropriate content\n- [ ] Wire review submission, edit, delete, and report actions in the place details UI\n\n### Acceptance Criteria\n- Users can submit, edit, and delete only their own reviews\n- Average venue ratings update accurately after review changes\n\n### Dependencies\n- {{DEP_7}}\n- {{DEP_10}}\n- {{DEP_16}}\n\n### Technical Notes\nSanitize review text and enforce one-review-per-user-per-place or clear policy.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 23,
+      "title": "[Module 7] Implement favorites and recommendation feedback",
+      "labels": [
+        "backend",
+        "frontend",
+        "recommendation",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M3 — Location and Community",
+      "dependencies": [
+        7,
+        10,
+        17
+      ],
+      "body": "### Objective\nImplement saved favorite venues and privacy-conscious recommendation feedback tracking.\n\n### Description\nAllow users to bookmark places and provide thumbs-up/accepted/rejected feedback on recommendations.\n\n### Scope of Work\n- [ ] Implement Favorites CRUD endpoints (`POST/DELETE /api/v1/favorites/{placeId}`, `GET /api/v1/favorites`)\n- [ ] Implement recommendation interaction logging (accepted/rejected/saved) respecting user privacy opt-out\n- [ ] Add favorite toggle buttons on venue cards and detail pages\n\n### Acceptance Criteria\n- Users can save and remove favorites with immediate UI feedback\n- Interaction tracking is skipped when the user has opted out in privacy settings\n\n### Dependencies\n- {{DEP_7}}\n- {{DEP_10}}\n- {{DEP_17}}\n\n### Technical Notes\nDo not store unnecessary PII in interaction analytics.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 24,
+      "title": "[Module 8] Design and implement constraint-based filtering",
+      "labels": [
+        "recommendation",
+        "backend",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M4 — Intelligent Exploration",
+      "dependencies": [
+        5,
+        9,
+        10
+      ],
+      "body": "### Objective\nImplement Stage 1 of the Java recommendation engine: mandatory hard-constraint filtering.\n\n### Description\nFilter out ineligible venues before scoring based on budget, available time, location, group size, categories, opening hours, and mandatory preferences.\n\n### Scope of Work\n- [ ] Define `RecommendationRequest` and constraint filter pipeline in Java\n- [ ] Implement filters for budget ceiling, max distance, available time window, group size suitability, required categories, and opening hours\n- [ ] Ensure mandatory user preferences (e.g., accessibility) are enforced\n- [ ] Write thorough JUnit tests covering edge cases and empty-result scenarios\n\n### Acceptance Criteria\n- Ineligible venues (closed, over-budget, out-of-range) are excluded before ranking\n- Unit tests verify each constraint independently and in combination\n\n### Dependencies\n- {{DEP_5}}\n- {{DEP_9}}\n- {{DEP_10}}\n\n### Technical Notes\nApply mandatory constraints strictly in Java business logic before any weighted scoring.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 25,
+      "title": "[Module 8] Implement Java-based weighted recommendation engine",
+      "labels": [
+        "recommendation",
+        "backend",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M4 — Intelligent Exploration",
+      "dependencies": [
+        24
+      ],
+      "body": "### Objective\nImplement Stage 2 of the Java recommendation engine: normalized scoring, configurable weights, and ranking.\n\n### Description\nRank eligible venues deterministically using configurable starting weights and missing-data handling.\n\n### Scope of Work\n- [ ] Implement normalized sub-scorers (0.0–1.0) for preference match, budget compatibility, distance, ratings, time compatibility, and popularity/context\n- [ ] Externalize configurable starting weights (30% preference, 20% budget, 15% distance, 15% ratings, 10% time, 10% popularity/context)\n- [ ] Implement fair missing-data handling so incomplete optional attributes do not unfairly zero out scores\n- [ ] Write JUnit + Mockito tests verifying deterministic ranking and weight configuration\n\n### Acceptance Criteria\n- Engine produces reproducible ranked results and human-readable score breakdowns\n- Weights are configurable via properties without code changes\n\n### Dependencies\n- {{DEP_24}}\n\n### Technical Notes\nDocument that initial weights (30/20/15/15/10/10) are configurable starting values, not validated final parameters.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 26,
+      "title": "[Module 8] Implement personalized recommendation API",
+      "labels": [
+        "recommendation",
+        "backend",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M4 — Intelligent Exploration",
+      "dependencies": [
+        23,
+        25
+      ],
+      "body": "### Objective\nExpose the personalized recommendation REST API combining user preferences, feedback, and explanations.\n\n### Description\nDeliver structured recommendation responses with match reasons to power both the web UI and the AI chatbot.\n\n### Scope of Work\n- [ ] Implement `POST /api/v1/recommendations` (and/or `GET`) combining explicit request constraints with stored user preferences\n- [ ] Incorporate past feedback signals (e.g., avoiding recently rejected venues)\n- [ ] Return structured DTOs including matched venues, score summaries, and concise explanation strings\n- [ ] Add API integration tests\n\n### Acceptance Criteria\n- API returns ranked venues with clear explanations and gracefully handles guest users without stored preferences\n- Response contract is documented in OpenAPI\n\n### Dependencies\n- {{DEP_23}}\n- {{DEP_25}}\n\n### Technical Notes\nKeep recommendation logic in Java services rather than delegating ranking to an LLM.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 27,
+      "title": "[Module 9] Integrate LLM API with Java backend",
+      "labels": [
+        "ai-chatbot",
+        "backend",
+        "security",
+        "feature",
+        "priority:P2"
+      ],
+      "milestone": "M4 — Intelligent Exploration",
+      "dependencies": [
+        1,
+        2
+      ],
+      "body": "### Objective\nSelect and integrate an external LLM API through the Java backend with secure configuration and resilience.\n\n### Description\nProvide a reliable, cost-controlled server-side LLM client for natural-language exploration.\n\n### Scope of Work\n- [ ] Select LLM provider and document configuration in `backend/README.md`\n- [ ] Implement server-side HTTP/SDK client with configurable timeouts, retry limits, and token/quota caps\n- [ ] Protect API key via environment variables and add rate limiting on chatbot endpoints\n- [ ] Mock LLM client in tests using Mockito\n\n### Acceptance Criteria\n- LLM API key never leaves the backend\n- Timeouts, quota errors, and provider outages return controlled fallback responses\n\n### Dependencies\n- {{DEP_1}}\n- {{DEP_2}}\n\n### Technical Notes\nNever call the LLM API directly from frontend JavaScript.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 28,
+      "title": "[Module 9] Implement conversational intent and constraint extraction",
+      "labels": [
+        "ai-chatbot",
+        "backend",
+        "feature",
+        "priority:P2"
+      ],
+      "milestone": "M4 — Intelligent Exploration",
+      "dependencies": [
+        27
+      ],
+      "body": "### Objective\nExtract structured exploration constraints and intent from natural-language user messages.\n\n### Description\nTranslate conversational requests (e.g., 'I have ₹800, three friends and four hours. Suggest some peaceful places in Bhubaneswar.') into validated `RecommendationRequest` parameters.\n\n### Scope of Work\n- [ ] Design structured JSON prompt/schema for extracting budget, group size, duration, mood, categories, and location\n- [ ] Maintain bounded conversation context for multi-turn follow-ups\n- [ ] Detect missing critical constraints and generate concise clarifying questions\n- [ ] Validate and sanitize all extracted fields in Java before downstream use\n\n### Acceptance Criteria\n- Sample multi-constraint queries extract accurate structured parameters\n- Malformed or out-of-bounds LLM outputs are rejected or clamped safely\n\n### Dependencies\n- {{DEP_27}}\n\n### Technical Notes\nTreat all LLM output as untrusted input; validate strictly with Java DTOs.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 29,
+      "title": "[Module 9] Connect AI chatbot to recommendation engine",
+      "labels": [
+        "ai-chatbot",
+        "recommendation",
+        "backend",
+        "feature",
+        "priority:P2"
+      ],
+      "milestone": "M4 — Intelligent Exploration",
+      "dependencies": [
+        26,
+        28
+      ],
+      "body": "### Objective\nConnect extracted chatbot constraints to the Java recommendation engine and enforce database-grounded responses.\n\n### Description\nEnsure every venue name, price, rating, distance, and opening hour surfaced by the chatbot comes strictly from MySQL.\n\n### Scope of Work\n- [ ] Pass validated extracted constraints to the Java recommendation engine\n- [ ] Format chatbot responses using only database-verified venue records and explanations\n- [ ] Implement response validation to reject hallucinated venues/attributes\n- [ ] Implement non-AI keyword/filter fallback when the LLM is unavailable or disabled\n\n### Acceptance Criteria\n- Chatbot never invents venue names, prices, ratings, distances, or opening hours\n- When LLM is unavailable, fallback returns valid database recommendations\n\n### Dependencies\n- {{DEP_26}}\n- {{DEP_28}}\n\n### Technical Notes\nAdd automated tests verifying grounding and non-AI fallback behavior.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 30,
+      "title": "[Module 10] Implement intelligent itinerary generation",
+      "labels": [
+        "itinerary",
+        "backend",
+        "feature",
+        "priority:P2"
+      ],
+      "milestone": "M5 — Advanced Features",
+      "dependencies": [
+        21,
+        24,
+        25
+      ],
+      "body": "### Objective\nImplement the Plan My Day and Group Outing itinerary generation engine.\n\n### Description\nGenerate feasible multi-stop Bhubaneswar outings based on starting location, group size, time window, budget, activities, and opening hours.\n\n### Scope of Work\n- [ ] Define `ItineraryRequest` (origin, group size, start/end time, per-person or total budget, activity preferences)\n- [ ] Select compatible venues respecting opening hours and budget constraints\n- [ ] Build multi-stop itinerary structure with suggested visit durations per stop\n- [ ] Write unit tests for time-window and opening-hour feasibility\n\n### Acceptance Criteria\n- Generated itineraries respect venue opening hours, group size, and total available time\n- Infeasible requests return clear explanations and relaxed alternatives\n\n### Dependencies\n- {{DEP_21}}\n- {{DEP_24}}\n- {{DEP_25}}\n\n### Technical Notes\nDistinguish per-person vs. total group budget explicitly.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 31,
+      "title": "[Module 10] Implement itinerary optimization and expense estimation",
+      "labels": [
+        "itinerary",
+        "backend",
+        "feature",
+        "priority:P2"
+      ],
+      "milestone": "M5 — Advanced Features",
+      "dependencies": [
+        21,
+        30
+      ],
+      "body": "### Objective\nOptimize itinerary stop ordering and compute travel times and itemized expense estimates.\n\n### Description\nMinimize unnecessary travel between stops and provide transparent budget breakdowns with alternative options.\n\n### Scope of Work\n- [ ] Implement logical stop-ordering algorithm factoring in opening hours and route travel time\n- [ ] Integrate route travel-time estimates between consecutive stops\n- [ ] Compute itemized estimated expenses (entry/food/local travel) and budget headroom\n- [ ] Clearly flag estimated values vs. unavailable pricing data and suggest alternatives if over budget\n\n### Acceptance Criteria\n- Stops are ordered logically without impossible time overlaps\n- Expense breakdowns clearly mark estimated values and missing data\n\n### Dependencies\n- {{DEP_21}}\n- {{DEP_30}}\n\n### Technical Notes\nNever present rough estimates as guaranteed exact prices.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 32,
+      "title": "[Module 10] Implement saved and shareable itineraries",
+      "labels": [
+        "itinerary",
+        "backend",
+        "frontend",
+        "feature",
+        "priority:P2"
+      ],
+      "milestone": "M5 — Advanced Features",
+      "dependencies": [
+        7,
+        30,
+        31
+      ],
+      "body": "### Objective\nAllow users to save, edit, visualize, and share generated itineraries with access controls.\n\n### Description\nPersist user-created outings in MySQL and provide shareable read-only links for group members.\n\n### Scope of Work\n- [ ] Implement Itinerary CRUD endpoints (save, list, edit stops, delete)\n- [ ] Implement shareable link/token generation with public/private access controls\n- [ ] Connect itinerary save, edit, share, and map visualization in the frontend\n\n### Acceptance Criteria\n- Authenticated users can save, edit, and delete their itineraries\n- Private itineraries cannot be accessed without authorization; shared links work read-only\n\n### Dependencies\n- {{DEP_7}}\n- {{DEP_30}}\n- {{DEP_31}}\n\n### Technical Notes\nEnsure share tokens are unguessable and revocable.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 33,
+      "title": "[Module 11] Implement admin dashboard and venue management",
+      "labels": [
+        "admin",
+        "backend",
+        "frontend",
+        "feature",
+        "priority:P1"
+      ],
+      "milestone": "M5 — Advanced Features",
+      "dependencies": [
+        8,
+        10,
+        14
+      ],
+      "body": "### Objective\nBuild the administrative interface and APIs for managing venues, categories, and data verification.\n\n### Description\nEmpower admins to keep Bhubaneswar venue listings accurate, verified, and up to date.\n\n### Scope of Work\n- [ ] Implement admin-only CRUD endpoints for places, categories, and verification status\n- [ ] Build admin dashboard UI for adding, editing, deactivating, and verifying venues\n- [ ] Add validation for coordinates, price ranges, and opening hours\n\n### Acceptance Criteria\n- Only `ADMIN` role users can access admin endpoints and UI\n- Changes to venues reflect immediately in public discovery\n\n### Dependencies\n- {{DEP_8}}\n- {{DEP_10}}\n- {{DEP_14}}\n\n### Technical Notes\nSoft-deactivate venues rather than hard-deleting if historical reviews/itineraries reference them.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 34,
+      "title": "[Module 11] Implement moderation and administrative controls",
+      "labels": [
+        "admin",
+        "backend",
+        "frontend",
+        "feature",
+        "priority:P2"
+      ],
+      "milestone": "M5 — Advanced Features",
+      "dependencies": [
+        8,
+        22,
+        33
+      ],
+      "body": "### Objective\nImplement user management, reported review moderation, platform statistics, and audit logging.\n\n### Description\nProvide operational visibility and content moderation tools for repository/platform administrators.\n\n### Scope of Work\n- [ ] Implement moderation queue APIs and UI for reported reviews (approve/dismiss/remove)\n- [ ] Implement admin user status management (activate/suspend)\n- [ ] Add basic platform statistics endpoint (total venues, users, reviews, itineraries)\n- [ ] Record audit log entries for administrative actions\n\n### Acceptance Criteria\n- Admins can resolve reported reviews and view basic platform metrics\n- All administrative mutations are recorded in an audit log\n\n### Dependencies\n- {{DEP_8}}\n- {{DEP_22}}\n- {{DEP_33}}\n\n### Technical Notes\nEnsure audit logs cannot be modified via standard user endpoints.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 35,
+      "title": "[Module 12] Implement automated backend and API testing",
+      "labels": [
+        "testing",
+        "backend",
+        "task",
+        "priority:P0"
+      ],
+      "milestone": "M6 — Final Release",
+      "dependencies": [
+        1,
+        2,
+        25
+      ],
+      "body": "### Objective\nBuild a comprehensive automated backend test suite using JUnit, Mockito, and Postman/API tests.\n\n### Description\nVerify backend correctness, recommendation scoring, security rules, and REST contracts continuously during development.\n\n### Scope of Work\n- [ ] Implement JUnit + Mockito unit tests for services, recommendation engine, and itinerary logic\n- [ ] Implement Spring Boot `@WebMvcTest` / `@SpringBootTest` API and repository integration tests\n- [ ] Create and commit a Postman collection (without secrets) covering core API workflows\n- [ ] Configure test coverage reporting (e.g., JaCoCo) in Maven\n\n### Acceptance Criteria\n- All unit and integration tests pass via `./mvnw test`\n- Recommendation engine edge cases and auth rules have automated test coverage\n\n### Dependencies\n- {{DEP_1}}\n- {{DEP_2}}\n- {{DEP_25}}\n\n### Technical Notes\nTesting should be added alongside each module rather than deferred to the end.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 36,
+      "title": "[Module 12] Perform frontend, integration and end-to-end testing",
+      "labels": [
+        "testing",
+        "frontend",
+        "task",
+        "priority:P1"
+      ],
+      "milestone": "M6 — Final Release",
+      "dependencies": [
+        15,
+        18,
+        35
+      ],
+      "body": "### Objective\nVerify complete user journeys, chatbot grounding, itinerary feasibility, accessibility, and edge cases.\n\n### Description\nEnsure the integrated frontend, backend, database, maps, and AI flows work reliably end-to-end.\n\n### Scope of Work\n- [ ] Test full user journeys (register -> preferences -> search -> compare -> review -> favorite)\n- [ ] Evaluate AI chatbot quality, constraint extraction, grounding, and non-AI fallback\n- [ ] Validate Plan My Day itinerary feasibility across varied budgets, group sizes, and hours\n- [ ] Run responsive layout, cross-browser, and accessibility checks and document findings\n\n### Acceptance Criteria\n- All critical user journeys pass without console or server errors\n- Known edge cases and accessibility checks are verified and documented\n\n### Dependencies\n- {{DEP_15}}\n- {{DEP_18}}\n- {{DEP_35}}\n\n### Technical Notes\nDocument test scenarios and results under `docs/`.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 37,
+      "title": "[Module 12] Implement security and CI/CD workflows",
+      "labels": [
+        "security",
+        "devops",
+        "task",
+        "priority:P0"
+      ],
+      "milestone": "M6 — Final Release",
+      "dependencies": [
+        8,
+        27,
+        35
+      ],
+      "body": "### Objective\nHarden application security and automate build/test verification with GitHub Actions.\n\n### Description\nProtect the application against common web vulnerabilities and ensure every PR is automatically verified.\n\n### Scope of Work\n- [ ] Configure GitHub Actions CI workflow (`.github/workflows/ci.yml`) to build and run backend tests on PRs\n- [ ] Audit authentication, RBAC, input sanitization, CORS, and secrets management\n- [ ] Implement rate limiting on authentication, routing, and AI chatbot endpoints\n- [ ] Add dependency/secret scanning checks in CI\n\n### Acceptance Criteria\n- GitHub Actions CI runs automatically on pull requests targeting `main`\n- Rate limiting and security headers are active and verified\n\n### Dependencies\n- {{DEP_8}}\n- {{DEP_27}}\n- {{DEP_35}}\n\n### Technical Notes\nNever store production secrets in workflow files; use GitHub Actions Secrets when needed.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    },
+    {
+      "id": 38,
+      "title": "[Module 12] Deploy application and prepare final documentation",
+      "labels": [
+        "devops",
+        "documentation",
+        "task",
+        "priority:P1"
+      ],
+      "milestone": "M6 — Final Release",
+      "dependencies": [
+        35,
+        36,
+        37
+      ],
+      "body": "### Objective\nFinalize production deployment, logging/monitoring, technical documentation, and expo demonstration materials.\n\n### Description\nPrepare BBSR-explore for live demonstration and handover with complete operational documentation.\n\n### Scope of Work\n- [ ] Finalize hosting/deployment configuration for frontend, Spring Boot backend, and MySQL\n- [ ] Configure structured application logging and health-check endpoints (Spring Actuator)\n- [ ] Update `README.md`, API docs, and architecture diagrams to reflect final implemented state\n- [ ] Prepare demo seed data and expo walkthrough guide\n\n### Acceptance Criteria\n- Application runs cleanly in the target deployment environment with health checks passing\n- Documentation accurately reflects all implemented features and setup steps\n\n### Dependencies\n- {{DEP_35}}\n- {{DEP_36}}\n- {{DEP_37}}\n\n### Technical Notes\nKeep production configuration strictly separated from local development settings.\n\n### Definition of Done\n- All required implementation tasks are complete.\n- Acceptance criteria are satisfied.\n- Relevant tests pass.\n- Documentation is updated where required.\n- Pull request is reviewed and merged."
+    }
+  ]
+}
